@@ -120,28 +120,28 @@ body {
 }
 
 /* ── STAT CARDS ── */
-.stat-grid {
+.stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 14px;
     margin-bottom: 20px;
 }
 
-.stat-card {
+.stats-card {
     background: var(--bg2);
     border: 1px solid var(--border);
     padding: 16px;
     border-radius: 10px;
 }
 
-.stat-val {
+.stats-val {
     font-size: 32ox;
     font-weight: 700;
     color: var(--accent);
     line-height: 1;
 }
 
-.stat-label {
+.stats-label {
     font-size: 11x;
     color: var(--text2);
     text-transform: uppercase;
@@ -149,21 +149,21 @@ body {
     margin-top: 4px;
 }
 
-.stat-change {
+.stats-change {
     font-size: 11px;
     color: var(--text2);
     margin-top: 6px;
 }
 
-.stat-change.positive {
+.stats-change.positive {
     color: #2ed573;
 }
 
-.stat-change.negative {
+.stats-change.negative {
     color: #ff4757;
 }
 
-.stat-change.neutral {
+.stats-change.neutral {
     color: var(--text2);
 }
 
@@ -176,4 +176,40 @@ body {
     padding:18px;
     margin-bottom: 20px;
     cursor: pointer;
+}
+
+.workout-tag {
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.workout-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.workout-meta {
+    font-size: 12px;
+    color: var(--text);
+    margin-bottom: 14px;
+}
+
+.workout-progress-bar{
+    height: 6px;
+    background: var(--bg3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.workout-progress-fill {
+    height: 100%;
+    width: 71;
+    background: var(--accent);
+    border-radius: 3px;
 }
