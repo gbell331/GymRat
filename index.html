@@ -1,94 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GymRat</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymRat</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
 <body>
 
 <div class="app">
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <div class="logo">GR</div>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="logo">GR</div>
+    <nav class="nav">
+      <button class="nav-btn active">🏠</button>
+      <button class="nav-btn">🏋️</button>
+      <button class="nav-btn">📋</button>
+      <button class="nav-btn">📅</button>
+    </nav>
+  </div>
 
-        <nav class="nav">
-            <button class="nav-btn active">🏠</button>
-            <button class="nav-btn">🏋️</button>
-            <button class="nav-btn">📋</button>
-            <button class="nav-btn">📅</button>
-        </nav>
+  <!-- MAIN -->
+  <div class="main">
 
-    </div>  
-    <!-- Main -->
-    <div class="main">
-    
-    <!-- Top Bar-->
+    <!-- TOPBAR -->
     <div class="topbar">
-        <div class="topbar-left"></div>
-        <div class="toggle-title">Dashboard</div>
-        <div class="topbar-sub">Thursday, June 4 - Week 1</div>
-    </div>
-    <div class="topbar-right">
+      <div class="topbar-left">
+        <div class="topbar-title">Dashboard</div>
+        <div class="topbar-sub">Thursday, June 4 · Week 1</div>
+      </div>
+      <div class="topbar-right">
         <div class="avatar">JD</div>
+      </div>
     </div>
 
-
-    <!-- Content -->
+    <!-- CONTENT -->
     <div class="content">
-        
-        <!-- DASHBOARD PAGE -->
-        <div class="page active" id="page-home">
 
-            <!-- STAT CARDS -->
-            <div class="stats-grid">
-                <div class="stats-card">
-                    <div class="stats-val">34</div>
-                    <div class="stats-label">Workouts</div>
-                    <div class="stats-change positive">↑ 3 times this week</div>
-                </div>
-                <div class="stats-card">
-                    <div class="stats-val">45k</div>
-                    <div class="stats-label">Lbs Lifted</div>
-                    <div class="stats-change positive">↑ 12% vs last week</div>
-                </div>
-                <div class="stats-card">
-                    <div class="stats-val">1h 14m</div>
-                    <div class="stats-label">Avg Duration</div>
-                    <div class="stats-change neutral">→ Steady</div>
-                </div>
-            </div>
-            
+      <!-- ═══ DASHBOARD PAGE ═══ -->
+      <div class="page active" id="page-home">
 
-            <!-- WORKOUTS PAGE -->
-            <div class="page" id="page-workout">
-                <h1>Today's Workouts</h1>
-            </div>
-        
-            <!-- MUSCLES PAGE -->
-         <div class="page" id="page-muscles">
-            <h1>Muscles Recovery</h1>
-         </div>
+        <!-- STAT CARDS -->
+        <div class="stats-grid">
+          <div class="stats-card">
+            <div class="stats-val">34</div>
+            <div class="stats-label">Workouts</div>
+            <div class="stats-change positive">↑ 3 times this week</div>
+          </div>
+          <div class="stats-card">
+            <div class="stats-val">45k</div>
+            <div class="stats-label">Lbs Lifted</div>
+            <div class="stats-change positive">↑ 12% vs last week</div>
+          </div>
+          <div class="stats-card">
+            <div class="stats-val">1h 14m</div>
+            <div class="stats-label">Avg Duration</div>
+            <div class="stats-change neutral">→ Steady</div>
+          </div>
+        </div>
 
-            <!-- LOG PAGE -->
-         <div class="page" id="page-log">
-            <h1>Log Exercise</h1>
-         </div>
-        
+        <!-- WORKOUT CARD -->
+        <div class="workout-card">
+          <div class="workout-tag">Today's Workout</div>
+          <div class="workout-name">Upper Body Hypertrophy</div>
+          <div class="workout-meta">~55 min · 7 exercises · Intermediate</div>
+          <div class="workout-progress-bar">
+            <div class="workout-progress-fill"></div>
+          </div>
+          <div class="workout-progress-label">5 of 7 exercises complete</div>
+        </div>
 
-            <!-- HISTORY PAGE -->
-         <div class="page" id="page-history">
-            <h1> History</h1>
-         </div>
-        
+      </div>
+      <!-- ═══ END DASHBOARD PAGE ═══ -->
 
+      <!-- ═══ WORKOUT PAGE ═══ -->
+      <div class="page" id="page-workout">
+        <h1>Today's Workout</h1>
+      </div>
 
+      <!-- ═══ MUSCLES PAGE ═══ -->
+      <div class="page" id="page-muscles">
+        <h1>Muscle Recovery</h1>
+      </div>
+
+      <!-- ═══ LOG PAGE ═══ -->
+      <div class="page" id="page-log">
+        <h1>Log Exercise</h1>
+      </div>
+
+      <!-- ═══ HISTORY PAGE ═══ -->
+      <div class="page" id="page-history">
+        <h1>History</h1>
+      </div>
 
     </div>
-
-
+  </div>
 </div>
 
 <script src="js/app.js"></script>

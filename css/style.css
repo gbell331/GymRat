@@ -209,7 +209,7 @@ body {
 
 .workout-progress-fill {
     height: 100%;
-    width: 71;
+    width: 71%;
     background: var(--accent);
     border-radius: 3px;
 }
