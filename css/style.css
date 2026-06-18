@@ -81,7 +81,7 @@ body {
 .nav {
     display: flex;
     flex-direction: column;
-    algin-items: center;
+    align-items: center;
     gap: 6px;
     margin-top: 20px;
     width: 100%;
@@ -93,7 +93,7 @@ body {
     border-radius: 10px;
     background: transparent;
     border: none;
-    curser: pointer;
+    cursor: pointer;
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -354,4 +354,131 @@ body {
 .muscle-fill {
     height: 100%;
     border-radius: 3px;
+}
+
+/* ── WORKOUT HEADER ── */
+.workout-header {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
+}
+/* ── EXERCISE LIST ── */
+.exercise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.exercise-row {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.exercise-row:hover {
+    background: var(--bg3);
+}
+
+.exercise-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.exercise-meta {
+    font-size: 12px;
+    color: var(--text2);
+    margin-top: 2px;
+}
+
+.exercise-status {
+    font-size: 11px;
+    color: var(--accent);
+}
+
+/* ── SET LOGGER ── */
+.set-logger {
+    display: none;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 16px;
+}
+
+.set-logger.open {
+    display: block;
+}
+
+.logger-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.btn-close-logger {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.btn-close-logger:hover {
+    background: var(--text2);
+    color: var(--text);
+}
+
+/* ── SET ROWS ── */
+.set-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.set-row:last-child {
+    border-bottom: none;
+}
+
+.set-num {
+    width: 24px;
+    height: 24px;
+    background: var(--bg3);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--text2);
+    flex-shrink: 0;
+}
+
+.set-input {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 10px;
+    font-size: 14px;
+    width: 80px;
+    text-align: center;
+}
+
+.set-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.set-x {
+    color: var(--text2)
 }
