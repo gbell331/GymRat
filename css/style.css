@@ -261,3 +261,97 @@ body {
     flex: 1;
     text-align: center;
 }
+
+/* ── PERSONAL RECORDS ── */
+.pr-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 20px;
+}
+
+.pr-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.pr-row:last-child {
+    border-bottom: none;
+}
+
+.pr-name {
+    font-size: 14px;
+}
+
+.pr-right {
+    text-align: right;
+}
+
+.pr-weight {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.pr-change {
+    display: block;
+    font-size: 11px;
+    color: #2ed573;
+}
+
+/* ── MUSCLE RECOVERY ── */
+.muscle-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 20px;
+}
+
+.muscle-row {
+    margin-bottom: 14px;
+}
+
+.muscle-row:last-child {
+    margin-bottom: 0;
+}
+
+.muscle-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.muscle-status {
+    font-weight: 500;
+}
+
+.muscle-status.ready {
+    color: #2ed573;
+}
+
+.muscle-status.moderate {
+    color: #efb827;
+}
+
+.muscle-status.fatigued {
+    color: #ff4757;
+}
+
+.muscle-bar {
+    height: 6px;
+    background: var(--bg3);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.muscle-fill {
+    height: 100%;
+    border-radius: 3px;
+}
