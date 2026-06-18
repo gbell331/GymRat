@@ -213,3 +213,51 @@ body {
     background: var(--accent);
     border-radius: 3px;
 }
+
+/* --WEEKLY CHART -- */
+.chart-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 20px;
+}
+
+.chart-title {
+    font: size 13px;
+    font-weight: 600;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 14px;
+}
+
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 60px;
+    margin-bottom: 8px;
+}
+
+.bar {
+    flex: 1;
+    background: var(--bg3);
+    border-radius: 3px 3px 0 0;
+}
+
+.bar.today {
+    background: var(--accent);
+}
+
+.chart-labels {
+    display:flex;
+    justify-content: space-between;
+}
+
+.chart-labels span {
+    font-size: 11px;
+    color: var(--text2);
+    flex: 1;
+    text-align: center;
+}
