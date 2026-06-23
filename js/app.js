@@ -1,123 +1,128 @@
-// -- PAGE NAVIGATION --
+// ── PAGE NAVIGATION ──
 const navBtns = document.querySelectorAll('.nav-btn');
 const pages = document.querySelectorAll('.page');
 
 navBtns.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-
-        // Remove active class from all buttons
-        navBtns.forEach(b => b.classList.remove('active'));
-
-        //Remove active from all pages
-        pages.forEach(p => p.classList.remove('active'));
-
-        // set click button as active
-        btn.classList.add('active');
-
-        //show matching page
-        pages[index].classList.add('active');
-
-    });
-
+  btn.addEventListener('click', () => {
+    navBtns.forEach(b => b.classList.remove('active'));
+    pages.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    pages[index].classList.add('active');
+  });
 });
 
 // ── SET LOGGER ──
 const exerciseRows = document.querySelectorAll('.exercise-row');
-const setLogger = document.getElementById('set-logger');
-const loggerTitle = document.getElementById('logger-title');
-const closeLoggerBtn = document.getElementById('close-logger');
-const loggerSets = document.getElementById('logger-sets');
 let currentRow = null;
-//let restTimer = null;
+let restTimer = null;
 
-exerciseRows.forEach(row =>{
-    row.addEventListener('click', () => {
-        const exerciseName = row.querySelector('.exercise-name').textContent;
-        const meta = row.querySelector('.exercise-meta').textContent;
-        const numSets = parseInt(meta.match(/(\d+) sets/)[1]);
-        currentRow = row;
+exerciseRows.forEach(row => {
+  row.addEventListener('click', (e) => {
+    // dont trigger if clicking a button or input inside the row
+    if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
 
-        loggerTitle.textContent = exerciseName;
+    const exerciseLogger = row.querySelector('.exercise-logger');
 
-        // clear old sets
-        loggerSets.innerHTML = '';
+    // if already open, close it
+    if (exerciseLogger.classList.contains('open')) {
+      exerciseLogger.classList.remove('open');
+      exerciseLogger.innerHTML = '';
+      return;
+    }
 
-        // build new set rows
-        for (let i = 1; i <= numSets; i++) {
-            loggerSets.innerHTML += `
-                <div class="set-row" id="set-row-${i}">
-                    <span class="set-num">${i}</span>
-                    <input type="number" placeholder="reps" class="set-input">
-                    <input type="number" placeholder="lbs" class="set-input">
-                    <button class="set-complete-btn" onclick="completeSet(${i}, ${numSets})">Complete</button>
-                </div>
-            `;
-        }
-
-        setLogger.classList.add('open');
+    // close any other open loggers
+    document.querySelectorAll('.exercise-logger.open').forEach(el => {
+      el.classList.remove('open');
+      el.innerHTML = '';
     });
+
+    const meta = row.querySelector('.exercise-meta').textContent;
+    const numSets = parseInt(meta.match(/(\d+) sets/)[1]);
+    currentRow = row;
+
+    let setsHTML = '';
+    for (let i = 1; i <= numSets; i++) {
+      setsHTML += `
+        <div class="set-row" id="set-row-${i}">
+          <span class="set-num">${i}</span>
+          <input type="number" placeholder="reps" class="set-input">
+          <input type="number" placeholder="lbs" class="set-input">
+          <button class="set-complete-btn" onclick="completeSet(${i}, ${numSets})">Complete</button>
+        </div>
+      `;
+    }
+
+    exerciseLogger.innerHTML = setsHTML;
+    exerciseLogger.classList.add('open');
+  });
 });
 
-closeLoggerBtn.addEventListener('click', () => {
-  const inputs = loggerSets.querySelectorAll('.set-input');
-  let allFilled = true;
+// ── COMPLETE SET ──
+function completeSet(setNum, totalSets) {
+  const currentSet = document.getElementById(`set-row-${setNum}`);
+  currentSet.style.borderLeft = '3px solid #2ed573';
+  currentSet.style.background = 'rgba(46, 213, 115, 0.1)';
+  currentSet.style.borderRadius = '8px';
+  currentSet.querySelector('.set-complete-btn').disabled = true;
+  currentSet.querySelector('.set-complete-btn').textContent = '✓';
 
-  inputs.forEach(input => {
-    if (input.value === '') {
-      allFilled = false;
-    }
-  });
+  if (setNum === totalSets) {
+    setTimeout(() => {
+      currentRow.classList.add('completed');
+      currentRow.querySelector('.exercise-status').textContent = '✓';
+      currentRow.querySelector('.exercise-logger').classList.remove('open');
+      currentRow.querySelector('.exercise-logger').innerHTML = '';
 
-  if (!allFilled) {
-    alert('Please fill in all sets before completing!');
+      const allDone = document.querySelectorAll('.exercise-row.completed').length === exerciseRows.length;
+      if (allDone) {
+        document.getElementById('checkin').style.display = 'block';
+      }
+    }, 1000);
     return;
   }
 
-  setLogger.classList.remove('open');
-  currentRow.classList.add('completed');
-  currentRow.querySelector('.exercise-status').textContent = '✓';
-});
+  let timeLeft = 5;
+  const timerDisplay = document.createElement('div');
+  timerDisplay.className = 'rest-timer';
+  timerDisplay.textContent = `Rest: ${timeLeft}s`;
+  currentSet.appendChild(timerDisplay);
 
-// --COMPLETE SET --
-let restTimer = null;
-
-function completeSet(setNum, totalSets) {
-    //highlight current set green
-    const currentSet = document.getElementById(`set-row-${setNum}`);
-    currentSet.style.borderLeft = '3px solid #2ed573';
-    currentSet.style.background = 'rgba(46, 213, 115, 0.1)';
-    currentSet.style.borderRadius = '8px';
-    currentSet.querySelector('.set-complete-btn').disabled = true;
-    currentSet.querySelector('.set-complete-btn').textContent = '✓';
-
-    //if all sets done, mark exercise complete
-    if (setNum == totalSets) {
-        setTimeout(() => {
-            setLogger.classList.remove('open');
-            currentRow.classList.add('completed');
-            currentRow.querySelector('.exercise-status').textContent = '✓';
-        }, 1000);
-        return;
-    }
-
-    //start rest timer before next set
-    let timeLeft = 5;
-    const nextSet = document.getElementById(`set-row-${setNum + 1}`);
-    nextSet.style.opacity = '1';
-
-    const timerDisplay = document.createElement('div');
-    timerDisplay.className = 'rest-timer';
+  restTimer = setInterval(() => {
+    timeLeft--;
     timerDisplay.textContent = `Rest: ${timeLeft}s`;
-    currentSet.appendChild(timerDisplay);
+    if (timeLeft === 0) {
+      clearInterval(restTimer);
+      timerDisplay.textContent = 'Go!';
+      setTimeout(() => timerDisplay.remove(), 1000);
+    }
+  }, 1000);
+}
 
-    restTimer = setInterval (() => {
-        timeLeft--;
-        timerDisplay.textContent = `Rest: ${timeLeft}s`;
+// ── POST WORKOUT CHECK IN ──
+let selectedRPE = null;
+let selectedSoreness = null;
 
-        if (timeLeft == 0) {
-            clearInterval(restTimer);
-            timerDisplay.textContent = 'Go!';
-            setTimeout(() => timerDisplay.remove(), 1000);
-        }
-    }, 1000)
+function selectRPE(btn) {
+  document.querySelectorAll('#rpe-options .checkin-btn').forEach(b => {
+    b.classList.remove('selected');
+  });
+  btn.classList.add('selected');
+  selectedRPE = btn.textContent;
+}
+
+function selectSoreness(btn) {
+  document.querySelectorAll('.checkin-section:last-of-type .checkin-btn').forEach(b => {
+    b.classList.remove('selected');
+  });
+  btn.classList.add('selected');
+  selectedSoreness = btn.textContent;
+}
+
+function submitCheckin() {
+  if (!selectedRPE || !selectedSoreness) {
+    alert('Please rate your effort and soreness before saving!');
+    return;
+  }
+  alert(`Workout saved! RPE: ${selectedRPE}, Soreness: ${selectedSoreness}`);
+  document.getElementById('checkin').style.display = 'none';
 }

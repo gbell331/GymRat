@@ -197,41 +197,117 @@
         <div class="exercise-list">
 
           <div class="exercise-row">
-            <div class="exercise-info">
-              <div class="exercise-name">Bench Press</div>
-              <div class="exercise-meta">Chest · 4 sets</div>
+            <div class="exercise-header">
+              <div class="exercise-info">
+                <div class="exercise-name">Bench Press</div>
+                <div class="exercise-meta">Chest · 4 sets</div>
+              </div>
+              <div class="exercise-status">○</div>
             </div>
-            <div class="exercise-status">○</div>
-
+            <div class="exercise-logger"></div>    
           </div>
 
           <div class="exercise-row">
-            <div class="exercise-info">
-              <div class="exercise-name">Incline DB Press</div>
-              <div class="exercise-meta">Chest · 3 sets</div>
+            <div class="exercise-header">
+              <div class="exercise-info">
+                <div class="exercise-name">Incline Dumbell Bench Press</div>
+                <div class="exercise-meta">Chest · 4 sets</div>
+              </div>
+              <div class="exercise-status">○</div>
             </div>
-            <div class="exercise-status">○</div>
+            <div class="exercise-logger"></div>    
           </div>
 
           <div class="exercise-row">
-            <div class="exercise-info">
-              <div class="exercise-name">Pull-Ups</div>
-              <div class="exercise-meta">Back · 4 sets</div>
+            <div class="exercise-header">
+              <div class="exercise-info">
+                <div class="exercise-name">Pull Ups</div>
+                <div class="exercise-meta">Back · 4 sets</div>
+              </div>
+              <div class="exercise-status">○</div>
             </div>
-            <div class="exercise-status">○</div>
+            <div class="exercise-logger"></div>    
           </div>
 
+          <div class="exercise-row">
+            <div class="exercise-header">
+              <div class="exercise-info">
+                <div class="exercise-name">Cable Flys</div>
+                <div class="exercise-meta">Chest · 4 sets</div>
+              </div>
+              <div class="exercise-status">○</div>
+            </div>
+            <div class="exercise-logger"></div>    
+          </div>
+
+          <div class="exercise-row">
+            <div class="exercise-header">
+              <div class="exercise-info">
+                <div class="exercise-name">Seated Cable Rows</div>
+                <div class="exercise-meta">Chest · 4 sets</div>
+              </div>
+              <div class="exercise-status">○</div>
+            </div>
+            <div class="exercise-logger"></div>    
+          </div>
+
+          <div class="exercise-row">
+            <div class="exercise-header">
+              <div class="exercise-info">
+                <div class="exercise-name">Overhead Press</div>
+                <div class="exercise-meta">Shoulders · 4 sets</div>
+              </div>
+              <div class="exercise-status">○</div>
+            </div>
+            <div class="exercise-logger"></div>    
+          </div>
+
+          <div class="exercise-row">
+            <div class="exercise-header">
+              <div class="exercise-info">
+                <div class="exercise-name">Lateral Raises</div>
+                <div class="exercise-meta">Shoulders · 4 sets</div>
+              </div>
+              <div class="exercise-status">○</div>
+            </div>
+            <div class="exercise-logger"></div>    
+          </div>
         </div>
 
-        <!-- SET LOGGER -->
-        <div class="set-logger" id="set-logger">
-          <div class="logger-title" id="logger-title">Exercise Name</div>
-          <div class="logger-sets" id="logger-sets">
-            <!-- sets will go here -->
+
+        
+        <!--POST WORKOUT CHECK IN -->
+        <div class="checkin" id="checkin" style="display:none;">
+          <div class="checkin-title">Workout Complete! 💪</div>
+          <div class="checkin-sub">How did that feel?</div>
+
+          <div class="checkin-section">
+            <div class="checkin-label">Rate your effort</div>
+            <div class="checkin-options" id="rpe-options">
+              <button class="checkin-btn" onclick="selectRPE(this)">1</button>
+                <button class="checkin-btn" onclick="selectRPE(this)">2</button>
+                <button class="checkin-btn" onclick="selectRPE(this)">3</button>
+                <button class="checkin-btn" onclick="selectRPE(this)">4</button>
+                <button class="checkin-btn" onclick="selectRPE(this)">5</button>
+                <button class="checkin-btn" onclick="selectRPE(this)">6</button>
+                <button class="checkin-btn" onclick="selectRPE(this)">7</button>
+                <button class="checkin-btn" onclick="selectRPE(this)">8</button>
+                <button class="checkin-btn" onclick="selectRPE(this)">9</button>
+                <button class="checkin-btn" onclick="selectRPE(this)">10</button>
+            </div>
           </div>
-          <button class="btn-close-logger" id="close-logger">Done</button>
+
+          <div class="checkin-section">
+            <div class="checkin-label">Any pain or soreness?</div>
+            <div class="checkin-options">
+              <button class="checkin-btn" onclick="selectSoreness(this)">None</button>
+              <button class="checkin-btn" onclick="selectSoreness(this)">Mild</button>
+              <button class="checkin-btn" onclick="selectSoreness(this)">Moderate</button>
+              <button class="checkin-btn" onclick="selectSoreness(this)">Severe</button>
+            </div>
         </div>
           
+          <button class="btn-submit-checkin" onclick="submitCheckin()">Save Workout</button></div>
 
 
       </div>
