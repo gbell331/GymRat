@@ -452,6 +452,8 @@ body {
     gap: 10px;
     padding: 8px 0;
     border-bottom: 1px solid var(--border);
+    overflow: visible;
+    flex-wrap: wrap;
 }
 
 .set-row:last-child {
@@ -492,10 +494,12 @@ body {
 
 /* ── REST TIMER ── */
 .rest-timer {
-    font-size: 12px;
-    color: var(--accent);
-    margin-top: 6px;
-    font-weight: 600;
+  font-size: 12px;
+  color: red;
+  margin-top: 6px;
+  font-weight: 600;
+  display: block;
+  width: 100%;
 }
 
 .set-complete-btn {

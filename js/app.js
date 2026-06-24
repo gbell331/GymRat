@@ -82,20 +82,28 @@ function completeSet(setNum, totalSets) {
   }
 
   let timeLeft = 5;
-  const timerDisplay = document.createElement('div');
-  timerDisplay.className = 'rest-timer';
-  timerDisplay.textContent = `Rest: ${timeLeft}s`;
-  currentSet.appendChild(timerDisplay);
 
-  restTimer = setInterval(() => {
-    timeLeft--;
+  //clear old timer first
+  clearInterval(restTimer);
+  document.querySelectorAll('.rest-timer').forEach(el =>el.remove());
+
+  //create new timer display
+  setTimeout(() => {
+    const timerDisplay = document.createElement('div');
+    timerDisplay.className = 'rest-timer';
     timerDisplay.textContent = `Rest: ${timeLeft}s`;
-    if (timeLeft === 0) {
-      clearInterval(restTimer);
-      timerDisplay.textContent = 'Go!';
-      setTimeout(() => timerDisplay.remove(), 1000);
-    }
-  }, 1000);
+    currentSet.appendChild(timerDisplay);
+
+    restTimer = setInterval(() => {
+      timeLeft--;
+      timerDisplay.textContent = `Rest: ${timeLeft}s`;
+      if (timeLeft === 0) {
+        clearInterval(restTimer);
+        timerDisplay.textContent = 'Go!';
+        setTimeout(() => timerDisplay.remove(), 1000);
+      }
+    }, 1000);
+  }, 100);
 }
 
 // ── POST WORKOUT CHECK IN ──
