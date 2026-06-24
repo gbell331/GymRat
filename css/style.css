@@ -453,7 +453,7 @@ body {
     padding: 8px 0;
     border-bottom: 1px solid var(--border);
     overflow: visible;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .set-row:last-child {
@@ -495,7 +495,7 @@ body {
 /* ── REST TIMER ── */
 .rest-timer {
   font-size: 12px;
-  color: red;
+  color: var(--accent);
   margin-top: 6px;
   font-weight: 600;
   display: block;
