@@ -98,6 +98,8 @@ function completeSet(setNum, totalSets, exerciseId) {
   exerciseState[exerciseId][setNum - 1].done = true;
 
   if (setNum === totalSets) {
+    clearInterval(restTimer);
+    document.querySelectorAll('.rest-timer').forEach(el => el.remove());
     setTimeout(() => {
       currentRow.classList.add('completed');
       currentRow.querySelector('.exercise-status').textContent = '✓';
