@@ -611,3 +611,47 @@ body {
 .exercise-row.completed .exercise-status {
   color: #2ed573;
 }
+
+/* ── AI INSIGHT ── */
+.ai-insight {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-top: 12px;
+}
+
+.ai-insight-tag {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1em;
+    margin-bottom: 6px;
+}
+
+.ai-insight-text {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+}
+
+/* ── GENERATE BUTTON ── */
+.btn-generate {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    width: 100%;
+    transition: background 0.15s;
+}
+
+.btn-generate:hover {
+    background: #d4eb3c;
+}

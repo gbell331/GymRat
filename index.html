@@ -189,12 +189,18 @@
       <div class="page" id="page-workout">
         
         <div class="workout-header">
+          <div class="ai-insight" id="ai-insight">
+            <div class="ai-insight-tag">AI Insight</div>
+            <div class="ai-insight-text" id="ai-insight-text">Generating your workout...</div>
+          </div>
+          <button class="btn-generate" onclick="generateWorkout()">Generate Workout</button>
           <div class="workout-tag">AI-generated · Today</div>
-          <div class="workout-name">Upper Body Hypertrophy</div>
-          <div class="workout-meta">~55 min · 7 exercises · Intermediate</div>
+          <div class="workout-name" id="workout-name">Upper Body Hypertrophy</div>
+          <div class="workout-meta" id="workout-meta">~55 min · 7 exercises · Intermediate</div>
+          
         </div>
 
-        <div class="exercise-list">
+        <div class="exercise-list" id="exercise-list">
 
           <div class="exercise-row" data-exercise="bench-press">
             <div class="exercise-header">
